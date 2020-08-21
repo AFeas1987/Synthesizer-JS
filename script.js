@@ -25,9 +25,9 @@ bluesScale.size = 6;
 pentatonicScale.size = 5;
 
 var measure = 0;
-var tempo = 0.61;
+var tempo = 0.45;
 
-const bpm = 4;
+const bpm = 8;
 
 class Note {
 
@@ -58,11 +58,12 @@ window.addEventListener('click', () => {
 
     if (audioContext !== undefined) {
 //        comfortablyNumb();
-//        chordDemo(69);
+    //    chordDemo(69, majorChord);
+    majorChordsDemo(69);
 //        arpDemo();
 //        scaleDemo(bluesScale);
 //        restDemo();
-        fibsDemo();
+        // fibsDemo();
     }
 });
 
@@ -104,14 +105,34 @@ function restDemo() {
     playNotes(0, partA);
 }
 
-function chordDemo(note) {
-    var partA = [
-        new Note(note)
-        , new Note(note + 4)
-        , new Note(note + 7)
-            ];
-    playChord(0, 0.5, partA);
+function majorChordsDemo(root) {
+    let time = 0;
+    time += chordDemo(time, root, majorChord, 0.5)
+    time += chordDemo(time, root + 2, minorChord, 0.5)
+    time += chordDemo(time, root + 4, minorChord, 0.5)
+    time += chordDemo(time, root + 5, majorChord, 0.5)
+    time += chordDemo(time, root + 7, majorChord, 0.5)
+    time += chordDemo(time, root + 9, minorChord, 0.5)
+    time += chordDemo(time, root + 11, dimChord, 0.5)
+    time += chordDemo(time, root + 12, majorChord, 0.5)
 }
+
+function chordDemo(time, note, chordFunc, length = 0.5) {
+    return playChord(time, length, chordFunc(note));
+}
+
+let majorChord = note => {
+    return [new Note(note), new Note(note + 4), new Note(note + 7)];
+}
+
+let minorChord = note => {
+    return [new Note(note), new Note(note + 3), new Note(note + 7)];
+}
+
+let dimChord = note => {
+    return [new Note(note), new Note(note + 3), new Note(note + 6)];
+}
+
 
 function arpDemo() {
     const A = 69;
