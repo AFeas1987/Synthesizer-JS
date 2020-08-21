@@ -59,7 +59,7 @@ window.addEventListener('click', () => {
     if (audioContext !== undefined) {
 //        comfortablyNumb();
     //    chordDemo(69, majorChord);
-    majorChordsDemo(69);
+    majorChordsDemo(57);
 //        arpDemo();
 //        scaleDemo(bluesScale);
 //        restDemo();

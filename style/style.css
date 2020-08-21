@@ -1,0 +1,54 @@
+*{
+    padding : 0;
+    margin : 0;
+}
+
+body{
+    height: 100vh;
+    font-size : 24px;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template: 
+    "canvas canvas canvas canvas canvas series" 9fr 
+    "play forward backward fast_forward fast_backward generate" 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#canvas{
+    background-color : lightcoral;
+    grid-area: canvas;
+}
+
+#series{
+    grid-area: series;
+    background-color : lightblue;
+}
+
+#play_pause{
+    background-color : lightpink;
+    grid-area: play;
+}
+
+#fast-forward{
+    background-color : khaki;
+    grid-area: fast_forward;
+}
+
+#fast-backward{
+    background-color : lemonchiffon;
+    grid-area: fast_backward;
+}
+
+#forward{
+    background-color : lightcyan;
+    grid-area: forward;
+}
+
+#backward{
+    background-color : lightseagreen;
+    grid-area: backward;
+}
+
