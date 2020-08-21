@@ -1,5 +1,12 @@
 let audioContext;
 
+try {
+    audioContext = new(window.AudioContext || window.webkitAudioContext)();
+} catch (error) {
+    // console.log(error);
+    console.log("Browser does not support the Web Audio API");
+}
+
 const noteNames = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B'];
 const lengthNames = [
                         'Sixteenth'
@@ -49,23 +56,23 @@ class Note {
 
 //printNotes();
 
-window.addEventListener('click', () => {
-    try {
-        audioContext = new(window.AudioContext || window.webkitAudioContext)();
-    } catch (error) {
-        console.log("Browser does not support the Web Audio API");
-    }
+// window.addEventListener('click', () => {
+//     try {
+//         audioContext = new(window.AudioContext || window.webkitAudioContext)();
+//     } catch (error) {
+//         console.log("Browser does not support the Web Audio API");
+//     }
 
-    if (audioContext !== undefined) {
-//        comfortablyNumb();
-    //    chordDemo(69, majorChord);
-    majorChordsDemo(57);
-//        arpDemo();
-//        scaleDemo(bluesScale);
-//        restDemo();
-        // fibsDemo();
-    }
-});
+//     if (audioContext !== undefined) {
+// //        comfortablyNumb();
+//     //    chordDemo(69, majorChord);
+//     majorChordsDemo(57);
+// //        arpDemo();
+// //        scaleDemo(bluesScale);
+// //        restDemo();
+//         // fibsDemo();
+//     }
+// });
 
 function fibsDemo() {
         var func;
@@ -416,4 +423,9 @@ function playNote(freq, start, length, prevLen) {
         oscillator.stop(audioContext.currentTime + start + length);
     }
 //    oscillator.disconnect(audioContext.destination, audioContext.currentTime + start + length);
+}
+
+export {
+    majorChordsDemo,
+    audioContext
 }

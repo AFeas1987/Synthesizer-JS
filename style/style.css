@@ -1,6 +1,7 @@
 *{
     padding : 0;
     margin : 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -14,41 +15,41 @@ body{
     display: grid;
     grid-template: 
     "canvas canvas canvas canvas canvas series" 9fr 
-    "play forward backward fast_forward fast_backward generate" 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
+    "play fast_backward fast_forward  backward forward generate" 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.controls{
+    text-align: center;
+    margin : 0 20px 5px 5px;
+    background-color : lightgray;
+    border : 1px solid black;
 }
 
 #canvas{
-    background-color : lightcoral;
     grid-area: canvas;
 }
 
 #series{
     grid-area: series;
-    background-color : lightblue;
 }
 
 #play_pause{
-    background-color : lightpink;
     grid-area: play;
 }
 
 #fast-forward{
-    background-color : khaki;
     grid-area: fast_forward;
 }
 
 #fast-backward{
-    background-color : lemonchiffon;
     grid-area: fast_backward;
 }
 
 #forward{
-    background-color : lightcyan;
     grid-area: forward;
 }
 
 #backward{
-    background-color : lightseagreen;
     grid-area: backward;
 }
 
